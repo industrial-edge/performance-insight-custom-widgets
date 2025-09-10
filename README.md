@@ -1,101 +1,98 @@
-# Writing good how-to or tutorial
+# Performance Insight custom widgets
 
-Before you start writing, read the following materials how to write good documentation (including how-tos).
+This application example demonstrates how to use custom widgets within the app Performance Insight for flexible visualization of any plant data.
 
-* [Google Developer style guide](https://developers.google.com/style)
-* [Technical writing Courses](https://developers.google.com/tech-writing)
-* [Microsoft Writing Style Guide](https://docs.microsoft.com/cs-cz/style-guide/welcome/)
-
-Then decide: Are you writing a tutorial or a how-to guide?
-
-[Divio](https://documentation.divio.com/) explains the difference  (Note that this applies for software documentation for application developers)
-
-* Tutorials are lessons that take the reader by the hand through a series of steps to complete a project of some kind. They are what your project needs in order to show a beginner that they can achieve something with it. https://documentation.divio.com/tutorials/
-* How-to guides take the reader through the steps required to solve a real-world problem
-
-Each have a different writing style. Tutorials must be bullet proof (no unexpected behavior) https://documentation.divio.com/how-to-guides/
-
-Note: Try to write the tutorials and how-tos as a standalone html page, ready to be generated using Static site generator [MkDocs](https://www.mkdocs.org/). When referencing code examples or files, use the full URL of the git repository. We want to reuse these how-tos and tutorials in Documentation website.
-
-Don't explain concepts. [It gets in a way of action](https://documentation.divio.com/how-to-guides/#don-t-explain-concepts).  
-
-Don't use HTML tags unless working with videos. And try to avoid using videos unless absolutely necessary. Don't upload videos to Git repository.
-
-Bellow you can find the structure of IE tow-to/tutorial
-
-- [Writing good how-to or tutorial](#writing-good-how-to-or-tutorial)
+- [Performance Insight custom widgets](#performance-insight-custom-widgets)
   - [Description](#description)
     - [Overview](#overview)
-    - [General Task](#general-task)
+    - [General task](#general-task)
   - [Requirements](#requirements)
     - [Prerequisites](#prerequisites)
     - [Used components](#used-components)
-  - [Installation](#installation)
+    - [TIA Project](#tia-project)
+  - [Configuration](#configuration)
   - [Usage](#usage)
   - [Documentation](#documentation)
   - [Contribution](#contribution)
-  - [License and Legal Information](#license-and-legal-information)
-  - [Disclaimer](#disclaimer)
-    
+  - [Licence and Legal Information](#licence-and-legal-information)
+
 ## Description
 
 ### Overview
 
-Why has been this how-to/tutorial created? What is the purpose?
+Besides the standart widget portfolio within Performance Insight, users are able to create customized widgets tailored to specific needs. These widgets are based on the [Apache ECharts library](https://echarts.apache.org/examples/en/index.html), which is a free and open-source JavaScript library for data visualizations. Several defined [ECharts options](https://echarts.apache.org/en/option.html#title) enable dynamic and interactive data representation.  
 
-### General Task
+![CustomWidgetExample](/docs/graphics/CustomWidetExample.png)
 
-What is the general goal/task of this how-to/tutorial?
+The ECharts library covers several widget types:
+- Bar
+- Line
+- Pie
+- Scatter
+- Radar
+- Tree
+- Boxplot
+- Heatmap
+- Map
+- Graph
+- Sankey
+- Gauge
 
-![task](docs/graphics/how-to-architecture-template.png)
+and many more...
 
-PowerPoint template for architecture picture [download here](https://siemens.sharepoint.com/:p:/r/teams/EdgeTeam-Discussion/Shared%20Documents/Quality%20Gate%20HQ/Quality%20Gate%20EU/23_GitHub_HowTos/Architecture_Template.pptx?d=w05e1ff84a07149cdb4659cc2f9211bbd&csf=1&web=1&e=p8QbsN).
+![CustomWidgetTypes](/docs/graphics/CustomWidgetTypes.jpg)
 
-Save created architecture PowerPoint slides as separate file [here](https://siemens.sharepoint.com/teams/EdgeTeam-Discussion/Shared%20Documents/Forms/AllItems.aspx?RootFolder=%2Fteams%2FEdgeTeam%2DDiscussion%2FShared%20Documents%2FQuality%20Gate%20HQ%2FQuality%20Gate%20EU%2F23%5FGitHub%5FHowTos&FolderCTID=0x012000002421829443F54BAB033C81F598C9AD) for later updates and use.
+### General task
+
+This repository describes how to create a custom widet within Performance Insight. It gives an overview about the configuration possibilities and provides some widget examples.  
 
 ## Requirements
 
 ### Prerequisites
 
-What are the requirements on the user knowledge, HW components before starting the how-to?
+- Access to an Industrial Edge Management System (IEM)
+- Onboarded Industial Edge Device (IED) on IEM
+- IED connected to PLC
+- TIA Portal project loaded on PLC
+- HTML5-capable Internet browser (e.g. Google Chrome)
 
 ### Used components
 
-List the used software and hardware components that were tested with this how-to.
-Add the used components here (e.g.)
+- Industrial Edge Management (IEM) V1.11.7
+- Industrial Edge Device V3.0.0
+- Management applications:
+  - Databus Configurator V3.2.0
+  - Common Connector Configurator V2.0.0
+- Device applications:
+  - Databus V3.1.0
+  - OPC UA Connector V2.4.0
+  - Common Configurator V2.2.0
+  - IIH Essentials V2.2.0
+  - Performance Insight V1.21.1
+- TIA Portal V19
 
-* Industrial Edge App Publisher V1.0.8
-* Docker Engine 18.09.6
-* Docker Compose V2.4
-* S7 Connector V 1.0.22
-* S7 Connector Configurator V 1.0.9
-* Industrial Edge Device V 1.0.0-34
-* TIA Portal V16
-* PLC: CPU 1511 FW 2.8.3
+### TIA Project
 
-## Installation
+This application example is based on the [tank application](https://github.com/industrial-edge/miscellaneous/tree/main/tank%20application) TIA Portal project.
 
-How to install/run this application example? (i.e. how to deploy it to Industrial Edge device?) How to build this application? How to set up configurations in IE?
+## Configuration
 
-To keep the readme.md file as short as possible please add more detailed information in the docs folder.
+You can find detailled information about the following steps in the [Configuration](/docs/Installation.md) documentation:
 
-* [Build application](docs/Installation.md#build-application)
+- [Configure IIH Essentials](/docs/Installation.md#configure-iih-essentials)
+- [Configure Performance Insight](/docs/Installation.md#configure-performance-insight)
 
 ## Usage
 
-When the app is installed, how can I use it? Usually some basic UI description to prove that the app is working correctly.
+xxx TODO xxx
 
 ## Documentation
 
-Add links to documentation. Either on external URL or in the doc folder. Please use always link to a file not to a directory (it doesn't work with static site generator engines).
-
-Add these links:
-
-You can find further documentation and help in the following links
+You can find further documentation and help in the following links:
 
 * [Industrial Edge Hub](https://iehub.eu1.edge.siemens.cloud/#/documentation)
-* [Industrial Edge Forum](https://forum.industrial-edge.siemens.cloud)
-* [Industrial Edge Documentation](https://docs.industrial-edge.siemens.cloud/)
+* [Industrial Edge Forum](https://www.siemens.com/industrial-edge-forum)
+* [Industrial Edge Documentation](https://docs.industrial-operations-x.siemens.cloud/p/industrial-edge)
 * [Industrial Edge landing page](https://new.siemens.com/global/en/products/automation/topic-areas/industrial-edge/simatic-edge.html)
 * [Industrial Edge GitHub page](https://github.com/industrial-edge)
 
@@ -103,22 +100,6 @@ You can find further documentation and help in the following links
 
 Please check our [contribution guideline](CONTRIBUTING.md). 
 
-## License and Legal Information
+## Licence and Legal Information
 
 Please read the [Legal information](LICENSE.txt).
-
-```
-TO BE DELETED: Depending on the content of your repository either choose the
-- LICENSE.md (In case no Source code is included) or the
-- LICENSE.txt file (Source Code is included)
-```
-
-## Disclaimer
-
-```
-Please add this Disclaimer in case your repository contains a Dockerfile otherwise you can remove the whole section
-```
-
-IMPORTANT - PLEASE READ CAREFULLY:
-
-This documentation describes how you can download and set up containers which consist of or contain third-party software. By following this documentation you agree that using such third-party software is done at your own discretion and risk. No advice or information, whether oral or written, obtained by you from us or from this documentation shall create any warranty for the third-party software. Additionally, by following these descriptions or using the contents of this documentation, you agree that you are responsible for complying with all third party licenses applicable to such third-party software. All product names, logos, and brands are property of their respective owners. All third-party company, product and service names used in this documentation are for identification purposes only. Use of these names, logos, and brands does not imply endorsement.
