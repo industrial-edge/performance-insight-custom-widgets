@@ -2,16 +2,18 @@
 
 - [Configuration](#configuration)
   - [Configure IIH Essentials](#configure-iih-essentials)
+  - [EChart options](#echart-options)
   - [Configure Performance Insight](#configure-performance-insight)
+    - [Accessing data](#Accessing-data)
     - [Create a standart custom widget](#create-a-standart-custom-widget)
-    - [EChart options](#echart-options)
-    - [Create a custom widget](#create-a-custom-widget)
-    - [Alternative options for accessing data](#alternative-options-for-accessing-data)
+    - [Create an individual custom widget](#create-an-individual-custom-widget)
     - [Widget examples](#widget-examples)
 
 ## Configure IIH Essentials
 
 The PLC with the running TIA project is connected via the OPC UA connector to the Industrial Edge Device (IED). Within the connector, all necessary tags are configured and deployed.  
+
+Please visit one of our [connector application examples](https://github.com/search?q=org%3Aindustrial-edge%2C+*connector*&type=repositories) to discover the basics of using connectors on an IED.
 
 Now the app IIH Essentials needs to collect and store this data, to further use it within Performance Insight.
 
@@ -25,9 +27,87 @@ Now the app IIH Essentials needs to collect and store this data, to further use 
 !!! TODO !!! :
 ![Variables](/docs/graphics/Variables.png)
 
+## EChart options
+
+These custom widgets are based on the [Apache ECharts library](https://echarts.apache.org/examples/en/index.html). Here you can find examples for several dashboard types.
+
+If you open the [ECharts options](https://echarts.apache.org/en/option.html#title) overview page, you can discover the different possibilities you have to configure a widget.  
+
+For example to configure a line diagram you need to use the 'series' option:
+
+```js
+series: [{ 
+    {type: line} 
+  }]
+```
+
+Within Performance Insight the default code for a custom widget looks like this:
+
+```js
+  series: widget.parameters?.map(parameter => ({
+    data: parameter.data?.map(d => ([d.timestamp, d.value])),
+    type: 'line',
+    itemStyle: {
+      color: parameter.color
+    }
+  }))
+  ```
+
 ## Configure Performance Insight
 
-## Create a standart custom widget
+### Accessing data
+
+**Access via placeholders**
+
+The widget editor provides several placeholders to access dashboard data as needed. These placeholders will be replaced with the actual data when the widget is rendered:
+
+![Placeholders](/docs/graphics/Placeholders.png)
+
+Example: Data series of parameter 1
+
+```js
+  series: [{
+    type: 'line',
+    data: __data[0],
+    itemStyle: {
+      color: __parameterColor[0]
+    }
+  }]
+  ```
+
+**Access via widget object**
+
+Use the widget object which contains all the data:
+
+![WidgetObject](/docs/graphics/WidgetObject.png)
+
+Example: Data series of parameter 1
+
+```js
+  series: [{
+    type: 'line',
+    data: widget.parameters[0].data,
+    itemStyle: {
+      color: widget.parameters[0].color
+    }
+  }]
+```
+
+**Access via widget object mapping**
+
+Map the widget object to use it more easy:
+
+```js
+  series: widget.parameters?.map(parameter => ({
+    data: parameter.data?.map(d => ([d.timestamp, d.value])),
+    type: 'line',
+    itemStyle: {
+      color: parameter.color
+    }
+  }))
+```
+
+### Create a standart custom widget
 
 After preparing all necessary input data, you can create a standart custom widet.
 
@@ -61,25 +141,14 @@ Finally, the custom widget is created an looks like this:
 
 ![StandartWidget](/docs/graphics/StandartWidget.png)
 
-## EChart options
-
-`
-Echart option:
-series: [{
-   {type: line}
- }]
-`
-
-## Create a custom widget
+### Create an individual custom widget
 
 xxx
 
-## Alternative options for accessing data
+### Widget examples
 
 xxx
 
-## Widget examples
-
-xxx
+**IMPORTANT**: Always state the keyword `return {}` to make your script and configuration working!
 
 See the chapter [Usage](/README.md#usage) to discover further information.

@@ -24,21 +24,8 @@ Besides the standart widget portfolio within Performance Insight, users are able
 
 ![CustomWidgetExample](/docs/graphics/CustomWidetExample.png)
 
-The ECharts library covers several widget types:
-- Bar
-- Line
-- Pie
-- Scatter
-- Radar
-- Tree
-- Boxplot
-- Heatmap
-- Map
-- Graph
-- Sankey
-- Gauge
-
-and many more...
+The ECharts library covers several widget types:  
+Bar, Line, Pie, Scatter, Radar, Tree, Boxplot, Heatmap, Map, Graph, Sankey, Gauge and many more...
 
 ![CustomWidgetTypes](/docs/graphics/CustomWidgetTypes.jpg)
 
