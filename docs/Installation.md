@@ -15,11 +15,7 @@ The PLC with the running TIA project is connected via the OPC UA connector to th
 
 Please visit one of our [connector application examples](https://github.com/search?q=org%3Aindustrial-edge%2C+*connector*&type=repositories) to discover the basics of using connectors on an IED.
 
-Now the app IIH Essentials needs to collect and store this data, to further use it within Performance Insight.
-
-- Make sure the OPC UA Connector is activated within IIH Essentials
-
-![Connector](/docs/graphics/Connector.png)
+Now the app IIH Essentials needs to collect and store this data, to further use it within Performance Insight. Make sure the OPC UA Connector is activated within IIH Essentials!
 
 - Add the following PLC attributes to a new or existing asset:
   - *GDB.process.numberFaulty*
@@ -29,11 +25,11 @@ Now the app IIH Essentials needs to collect and store this data, to further use 
 
 ## EChart options
 
-These custom widgets are based on the [Apache ECharts library](https://echarts.apache.org/examples/en/index.html). Here you can find examples for several dashboard types.
+The custom widgets are based on the [Apache ECharts library](https://echarts.apache.org/examples/en/index.html), where you can find examples for several dashboard types. If you open the [ECharts options](https://echarts.apache.org/en/option.html#title) overview page, you can discover the different possibilities you have to configure a widget.  
 
-If you open the [ECharts options](https://echarts.apache.org/en/option.html#title) overview page, you can discover the different possibilities you have to configure a widget.  
+The essential option for configuring the widget types is the 'series' option.
 
-For example to configure a line diagram you need to use the 'series' option:
+For example, to configure a line diagram, it looks like this:
 
 ```js
 series: [{ 
@@ -57,45 +53,13 @@ Within Performance Insight the default code for a custom widget looks like this:
 
 ### Accessing data
 
-**Access via placeholders**
-
-The widget editor provides several placeholders to access dashboard data as needed. These placeholders will be replaced with the actual data when the widget is rendered:
-
-![Placeholders](/docs/graphics/Placeholders.png)
-
-Example: Data series of parameter 1
-
-```js
-  series: [{
-    type: 'line',
-    data: __data[0],
-    itemStyle: {
-      color: __parameterColor[0]
-    }
-  }]
-  ```
-
 **Access via widget object**
 
-Use the widget object which contains all the data:
+Use the widget object and map the 'data' structure:
 
 ![WidgetObject](/docs/graphics/WidgetObject.png)
 
-Example: Data series of parameter 1
-
-```js
-  series: [{
-    type: 'line',
-    data: widget.parameters[0].data,
-    itemStyle: {
-      color: widget.parameters[0].color
-    }
-  }]
-```
-
-**Access via widget object mapping**
-
-Map the widget object to use it more easy:
+Example 1 (default widget access):
 
 ```js
   series: widget.parameters?.map(parameter => ({
@@ -106,6 +70,58 @@ Map the widget object to use it more easy:
     }
   }))
 ```
+
+Example 2 (access 1. parameter):
+
+```js
+const dataseries = widget.parameters[0].data.map(dp => [dp.timestamp, dp.value]);
+...
+  series: [{
+    type: 'line',
+    data: dataseries,
+    itemStyle: {
+      color: widget.parameters[0].color
+    }
+  }]
+```
+
+![AccessViaWidgetObject](/docs/graphics/AccessViaWidgetObject.png)
+
+**Access via placeholders**
+
+The widget editor provides several placeholders to access dashboard data as needed. These placeholders will be replaced with the actual data when the widget is rendered:
+
+![Placeholders](/docs/graphics/Placeholders.png)
+
+Example (access 1. parameter):
+
+```js
+const length = __data[0].length;
+const datapoints = [];
+
+// access data via placeholder and map to datapoint structure
+for (let i = 0; i < length; i++) {
+  const dp = {
+    timestamp: "",
+    value: ""
+  };
+  dp.timestamp = __time[0][i];
+  dp.value = __data[0][i];
+  datapoints.push(dp);
+}
+
+const dataseries = datapoints.map(dp => [dp.timestamp, dp.value]);
+...
+  series: [{
+    type: 'line',
+    data: dataseries,
+    itemStyle: {
+      color: __parameterColor[0]
+    }
+  }]
+```
+
+![AccessViaPlaceholder](/docs/graphics/AccessViaPlaceholder.png)
 
 ### Create a standart custom widget
 
