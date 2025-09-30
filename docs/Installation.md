@@ -2,9 +2,9 @@
 
 - [Configuration](#configuration)
   - [Configure IIH Essentials](#configure-iih-essentials)
-  - [EChart options](#echart-options)
   - [Configure Performance Insight](#configure-performance-insight)
     - [Create a standart custom widget](#create-a-standart-custom-widget)
+    - [EChart options](#echart-options)
     - [Accessing data](#Accessing-data)
     - [Create an individual custom widget](#create-an-individual-custom-widget)
 
@@ -18,32 +18,6 @@ Now the app IIH Essentials needs to collect and store this data, to further use 
 
 - Add the following PLC attributes to a new or existing asset:
   - *GDB.process.numberFaulty*
-
-## EChart options
-
-The custom widgets are based on the [Apache ECharts library](https://echarts.apache.org/examples/en/index.html), where you can find examples for several dashboard types. If you open the [ECharts options](https://echarts.apache.org/en/option.html#title) overview page, you can discover the different possibilities you have to configure a widget.  
-
-The essential option for configuring the widget types is the 'series' option.
-
-For example, to configure a line diagram, it looks like this:
-
-```js
-series: [{ 
-    {type: line} 
-  }]
-```
-
-Within Performance Insight the default code for a custom widget looks like this:
-
-```js
-  series: widget.parameters?.map(parameter => ({
-    data: parameter.data?.map(d => ([d.timestamp, d.value])),
-    type: 'line',
-    itemStyle: {
-      color: parameter.color
-    }
-  }))
-  ```
 
 ## Configure Performance Insight
 
@@ -81,6 +55,32 @@ Under *Custom chart configuration* you find the JavaScript editor for the custom
 Finally, a default custom widget was created which looks like this:
 
 ![StandartWidget](/docs/graphics/StandartWidget.png)
+
+### EChart options
+
+The custom widgets are based on the [Apache ECharts library](https://echarts.apache.org/examples/en/index.html), where you can find examples for several dashboard types. If you open the [ECharts options](https://echarts.apache.org/en/option.html#title) overview page, you can discover the different possibilities you have to configure a widget.  
+
+The essential option for configuring the widget types is the 'series' option.
+
+For example, to configure a line diagram, it looks like this:
+
+```js
+series: [{ 
+    {type: line} 
+  }]
+```
+
+Within Performance Insight the default code for a custom widget looks like this:
+
+```js
+  series: widget.parameters?.map(parameter => ({
+    data: parameter.data?.map(d => ([d.timestamp, d.value])),
+    type: 'line',
+    itemStyle: {
+      color: parameter.color
+    }
+  }))
+  ```
 
 ### Accessing data
 
@@ -162,7 +162,7 @@ In this case we use the line diagram example ['Beijing AQI'](https://echarts.apa
 
 ![EChartsExample](/docs/graphics/EChartsExample.png)
 
-If you open the link to the example, you will always get the dedicated JavaScript code. Here you get an overview which parts of the original code need to be adapted in order to integrate the example in the Industrial Edge custom widgets:
+If you open the link to the example, you will always get the dedicated JavaScript code. Here you get an overview which parts of the original code (left side) need to be adapted in order to integrate the example in the Industrial Edge custom widgets (right side):
 
 ![ExampleCode1](/docs//graphics/ExampleCode1.png)
 
