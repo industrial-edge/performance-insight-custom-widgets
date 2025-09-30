@@ -1,0 +1,94 @@
+{
+  "version": 6,
+  "app": "PerformanceInsight",
+  "exportType": "dashboard",
+  "creationDate": "2025-09-30T11:39:12.661Z",
+  "dateSettings": {
+    "queryTypeId": "day",
+    "dateRange": {
+      "from": "2025-09-25T22:00:00.000Z",
+      "to": null
+    },
+    "useCurrentDate": false,
+    "offset": 0
+  },
+  "dimension": {
+    "width": 50,
+    "height": 25
+  },
+  "title": "Custom Widget",
+  "updateRate": 30000,
+  "backgroundImage": null,
+  "queryTypes": [],
+  "statusMappings": [],
+  "widgets": [
+    {
+      "title": "Custom line diagram",
+      "type": "performance-insight-custom",
+      "dimension": {
+        "width": 30,
+        "height": 14
+      },
+      "dataSourcesSettings": [
+        {
+          "id": "0",
+          "color": "#00646E",
+          "decimalPlaces": 2,
+          "label": "Faulty",
+          "limits": {
+            "warning": {
+              "high": null,
+              "low": null
+            },
+            "alert": {
+              "high": null,
+              "low": null
+            }
+          },
+          "dataSource": {
+            "type": "Variable",
+            "id": "1",
+            "aggregation": "Counter",
+            "name": "GDB.process.numberFaulty",
+            "assetId": "798c2bad-0474-41a8-8936-1bd483330484",
+            "path": [
+              "edge",
+              "Tank Application (Demo)"
+            ],
+            "aspectName": "",
+            "unit": "",
+            "dataType": "UInt32",
+            "defaultAggregation": "Average",
+            "acquisitionCategory": "ProcessValue"
+          }
+        }
+      ],
+      "dateSettings": {
+        "queryTypeId": "day",
+        "dateRange": {
+          "from": null,
+          "to": null
+        },
+        "useCurrentDate": true,
+        "offset": 0
+      },
+      "kpiCalculationTimeRange": {
+        "timeRange": "hour",
+        "value": 1
+      },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "views": [
+        {
+          "type": "custom",
+          "customConfig": "const dataseries = widget.parameters[0].data.map(dp => [dp.timestamp, dp.value]);\n\nreturn {\n  title: {\n    text: 'Beijing AQI',\n    left: '1%'\n  },\n  tooltip: {\n    trigger: 'axis'\n  },\n  grid: {\n    left: '5%',\n    right: '15%',\n    bottom: '10%'\n  },\n  xAxis: {\n    type: 'time',\n    data: __time[0]\n    /*        data: data.map(function (item) {\n              return item[0];\n            }) */\n  },\n  yAxis: {},\n  toolbox: {\n    right: 10,\n    feature: {\n      dataZoom: {\n        yAxisIndex: 'none'\n      },\n      restore: {},\n      saveAsImage: {}\n    }\n  },\n  dataZoom: [\n    /*    {\n          startValue: '2014-06-01'\n        },  */\n    {\n      type: 'inside'\n    }\n  ],\n  visualMap: {\n    top: 50,\n    right: 10,\n    pieces: [{\n        gt: 0,\n        lte: 50,\n        color: '#93CE07'\n      },\n      {\n        gt: 50,\n        lte: 100,\n        color: '#FBDB0F'\n      },\n      {\n        gt: 100,\n        lte: 150,\n        color: '#FC7D02'\n      },\n      {\n        gt: 150,\n        lte: 200,\n        color: '#FD0100'\n      },\n      {\n        gt: 200,\n        lte: 300,\n        color: '#AA069F'\n      },\n      {\n        gt: 300,\n        color: '#AC3B2A'\n      }\n    ],\n    outOfRange: {\n      color: '#999'\n    }\n  },\n  series: {\n    name: 'Beijing AQI',\n    type: 'line',\n    /*        data: data_y_axis.map(function (item) {\n              return item[1];\n            }), */\n    data: dataseries,\n    markLine: {\n      silent: true,\n      lineStyle: {\n        color: '#333'\n      },\n      data: [{\n          yAxis: 50\n        },\n        {\n          yAxis: 100\n        },\n        {\n          yAxis: 150\n        },\n        {\n          yAxis: 200\n        },\n        {\n          yAxis: 300\n        }\n      ]\n    }\n  }\n};"
+        }
+      ],
+      "assets": [],
+      "dateSettingsMode": "inherited",
+      "kpiTypes": []
+    }
+  ]
+}

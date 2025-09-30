@@ -1,82 +1,190 @@
-# Installation
+# Configuration
 
-- [Installation](#installation)
-  - [Build application](#build-application)
-    - [Cloning image](#cloning-image)
-    - [Build docker image](#build-docker-image)
-  - [Upload  App to the Industrial Edge Managment](#upload--app-to-the-industrial-edge-managment)
-    - [Connect your Industrial Edge App Publisher](#connect-your-industrial-edge-app-publisher)
-    - [Upload  App using the Industrial Edge App Publisher](#upload--app-using-the-industrial-edge-app-publisher)
-  - [Deploying of App](#deploying-of-app)
-    - [Configuring application](#configuring-application)
-    - [Add additional installation steps here, if required](#add-additional-installation-steps-here-if-required)
-      - [Additional steps](#additional-steps)
-  
-## Build application
+- [Configuration](#configuration)
+  - [Configure IIH Essentials](#configure-iih-essentials)
+  - [Configure Performance Insight](#configure-performance-insight)
+    - [Create a standart custom widget](#create-a-standart-custom-widget)
+    - [EChart options](#echart-options)
+    - [Accessing data](#Accessing-data)
+    - [Create an individual custom widget](#create-an-individual-custom-widget)
 
-### Cloning image
+## Configure IIH Essentials
 
-- Clone or Download the source code to your engineering VM
+The PLC with the running TIA project is connected via the OPC UA connector to the Industrial Edge Device (IED). Within the connector, all necessary tags are configured and deployed.  
 
-### Build docker image
+Please visit one of our [connector application examples](https://github.com/search?q=org%3Aindustrial-edge%2C+*connector*&type=repositories) to discover the basics of using connectors on an IED.
 
-Add instruction how to build your application, e.g.:
+Now the app IIH Essentials needs to collect and store this data, to further use it within Performance Insight. Make sure the OPC UA Connector (or any other connector) is activated within IIH Essentials!
 
-- Open console in the source code folder
-- Rename the example Dockerfile (Dockerfile.example) to 'Dockerfile'
-- Use command `docker-compose build` to create the docker image.
-- This docker image can now be used to build you app with the Industrial Edge App Publisher
-- *docker images | grep scannerapp* can be used to check for the images
-- You should get a result similiar to this:
+- Add the following PLC attributes to a new or existing asset:
+  - *GDB.process.numberFaulty*
 
-## Upload  App to the Industrial Edge Managment
+## Configure Performance Insight
 
-Please find below a short description how to publish your application in your IEM.
+### Create a standard custom widget
 
-For more detailed information please see the section for [uploading apps to the IEM](https://github.com/industrial-edge/upload-app-to-iem).
+After preparing all necessary input data, you can create a standard custom widet.
 
-### Connect your Industrial Edge App Publisher
+- Go to *My Plant* and select the dedicated asset
+- Choose *Add dashboard* > *User-defined dashboard* to create a new dashboard
+- Click on *Add first widget*
 
-- Connect your Industrial Edge App Publisher to your docker engine
-- Connect your Industrial Edge App Publisher to your Industrial Edge Managment System
+The widget configuration wizard opens. Set the configuration as following:
 
-### Upload  App using the Industrial Edge App Publisher
+1 General:
+- Select *Custom* widget type
+- Enter the widget name *Standart custom widget*
 
-- Create a new application using the Industrial Publisher
-- Add a app new version
-- Import the [docker-compose](../docker-compose.yml) file using the **Import YAML** button
-- The warning `Build (sevices >> scanner-service) is not supported` can be ignored
-- **Start Upload** to transfer the app to Industrial Edge Managment
-- Further information about using the Industrial Edge App Publisher can be found in the [IE Hub](https://iehub.eu1.edge.siemens.cloud/documents/appPublisher/en/start.html)
+![StandartWidget_Config1](/docs/graphics/StandartWidget_Config1.png)
 
-## Deploying of App
+2 Parameter:
+- Select the parameter *GDB.process.numberFaulty* and set aggregation to *Counter*
 
-### Configuring application
+![StandartWidget_Config2](/docs/graphics/StandartWidget_Config2.png)
 
-If your app needs additional configuration you can add further description here, e.g. [param.json](../cfg-data/param.json)
+3 Details:
+- set the *Trend calculation period* to 15 minutes
+- don't change anything within the JavaScript editor
 
-```json
-{
-    "Parameter1": "Siemens AG",
-    "Parameter2": "edge",
-    "Parameter3": "edge"
-}
+Under *Custom chart configuration* you find the JavaScript editor for the custom widget code. Per default, there is already a code example inserted. In this case it is a simple diagram template were the previously selected input parameter is already mapped into the code.
+
+![StandartWidget_Config3](/docs/graphics/StandartWidget_Config3.png)
+
+- Click on *Create widget* to finalize the custom widget
+
+Finally, a default custom widget was created which looks like this:
+
+![StandartWidget](/docs/graphics/StandartWidget.png)
+
+### EChart options
+
+The custom widgets are based on the [Apache ECharts library](https://echarts.apache.org/examples/en/index.html), where you can find examples for several dashboard types. If you open the [ECharts options](https://echarts.apache.org/en/option.html#title) overview page, you can discover the different possibilities for your widgets.  
+
+The essential option for configuring the widget types is the 'series' option.
+
+For example, to configure a line diagram, it looks like this:
+
+```js
+series: [{ 
+    {type: line} 
+  }]
 ```
 
-Add description of the configuration here:
+Within Performance Insight the default code for a custom widget looks like this:
 
-### Add additional installation steps here, if required
+```js
+  series: widget.parameters?.map(parameter => ({
+    data: parameter.data?.map(d => ([d.timestamp, d.value])),
+    type: 'line',
+    itemStyle: {
+      color: parameter.color
+    }
+  }))
+  ```
 
-#### Additional steps
+### Accessing data
 
-- Add description here
-- Add screenshots here
+**Access via widget object**
 
-For having uniform screenshots it is recommended to use the Tool Snagit with the following settings
-- Image:
-- Effects: Border
-- Color: #000000 (black)
-- Width: 1
+Use the widget object and map the 'data' structure:
 
-![](graphics/snagit-settings1.png)
-![](graphics/snagit-settings2.png)
+![WidgetObject](/docs/graphics/WidgetObject.png)
+
+Example 1 (default widget access):
+
+```js
+  series: widget.parameters?.map(parameter => ({
+    data: parameter.data?.map(d => ([d.timestamp, d.value])),
+    type: 'line',
+    itemStyle: {
+      color: parameter.color
+    }
+  }))
+```
+
+Example 2 (access first parameter):
+
+```js
+const dataseries = widget.parameters[0].data.map(dp => [dp.timestamp, dp.value]);
+...
+  series: [{
+    type: 'line',
+    data: dataseries,
+    itemStyle: {
+      color: widget.parameters[0].color
+    }
+  }]
+```
+
+![AccessViaWidgetObject](/docs/graphics/AccessViaWidgetObject.png)
+
+**Access via placeholders**
+
+The widget editor provides several placeholders to access dashboard data as needed. These placeholders will be replaced with the actual data when the widget is rendered:
+
+![Placeholders](/docs/graphics/Placeholders.png)
+
+Example (access first parameter):
+
+```js
+const length = __data[0].length;
+const datapoints = [];
+
+// access data via placeholder and map to datapoint structure
+for (let i = 0; i < length; i++) {
+  const dp = {
+    timestamp: "",
+    value: ""
+  };
+  dp.timestamp = __time[0][i];
+  dp.value = __data[0][i];
+  datapoints.push(dp);
+}
+
+const dataseries = datapoints.map(dp => [dp.timestamp, dp.value]);
+...
+  series: [{
+    type: 'line',
+    data: dataseries,
+    itemStyle: {
+      color: __parameterColor[0]
+    }
+  }]
+```
+
+![AccessViaPlaceholder](/docs/graphics/AccessViaPlaceholder.png)
+
+### Create an individual custom widget
+
+Here is shown how to integrate an ECharts example into a Performance Insight custom widget.
+
+In this case we use the line diagram example ['Beijing AQI'](https://echarts.apache.org/examples/en/editor.html?c=line-aqi)
+
+![EChartsExample](/docs/graphics/EChartsExample.png)
+
+If you open the link to the example, you will always get the dedicated JavaScript code. Here you get an overview which parts of the original code (left side) need to be adapted in order to integrate the example in the Industrial Edge custom widgets (right side):
+
+![ExampleCode1](/docs//graphics/ExampleCode1.png)
+
+![ExampleCode2](/docs//graphics/ExampleCode2.png)
+
+You can find the adapted JavaScript code for implementing this example on Edge [here](/src/EChart%20Example_Beijing_for_Edge.js).
+
+Please follow these steps to create a custom widget out of it:
+
+- proceed as explained in chapter [Create a standart custom widget](#create-a-standart-custom-widget) to create a new widget
+- under *3 Details*, set the *Trend calculation period* to 1 hour
+- paste the above created JavaScript code in the editor field
+
+**IMPORTANT**: Always state the keyword `return {}` to make your script and configuration working!
+
+- save the configuration
+- Click on *Create widget* to finalize the custom widget
+
+Finally, the custom widget was created and looks like the ECharts example, but uses the Industrial Edge data:
+
+![EChartsWidget](/docs/graphics/EChartsWidget.png)
+
+You can find the exported dashboard file [here](/src/Custom%20Widget.json) for download.
+
+See the chapter [Usage](/README.md#usage) to discover further information.
