@@ -43,7 +43,7 @@ This repository describes how to create a custom widet within Performance Insigh
 
 ### Used components
 
-- Industrial Edge Management (IEM) V1.11.7
+- Industrial Edge Management (IEM) V1.14.9
 - Industrial Edge Device V3.0.0
 - Management applications:
   - Databus Configurator V3.2.0
@@ -71,7 +71,7 @@ You can find detailled information about the following steps in the [Configurati
 
 You can use the custom widgets as any other widgets within Performance Insight.
 
-Via the dashboard date picket you can define the time range for incoming data to e.g. analyze system behaviour backwards.
+Via the dashboard date picker you can define the time range for incoming data to e.g. analyze system behaviour backwards.
 
 ![CEChartsWidgetWeek](/docs/graphics/EChartsWidgetWeek.png)
 

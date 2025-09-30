@@ -21,9 +21,9 @@ Now the app IIH Essentials needs to collect and store this data, to further use 
 
 ## Configure Performance Insight
 
-### Create a standart custom widget
+### Create a standard custom widget
 
-After preparing all necessary input data, you can create a standart custom widet.
+After preparing all necessary input data, you can create a standard custom widet.
 
 - Go to *My Plant* and select the dedicated asset
 - Choose *Add dashboard* > *User-defined dashboard* to create a new dashboard
@@ -58,7 +58,7 @@ Finally, a default custom widget was created which looks like this:
 
 ### EChart options
 
-The custom widgets are based on the [Apache ECharts library](https://echarts.apache.org/examples/en/index.html), where you can find examples for several dashboard types. If you open the [ECharts options](https://echarts.apache.org/en/option.html#title) overview page, you can discover the different possibilities you have to configure a widget.  
+The custom widgets are based on the [Apache ECharts library](https://echarts.apache.org/examples/en/index.html), where you can find examples for several dashboard types. If you open the [ECharts options](https://echarts.apache.org/en/option.html#title) overview page, you can discover the different possibilities for your widgets.  
 
 The essential option for configuring the widget types is the 'series' option.
 
@@ -102,7 +102,7 @@ Example 1 (default widget access):
   }))
 ```
 
-Example 2 (access 1. parameter):
+Example 2 (access first parameter):
 
 ```js
 const dataseries = widget.parameters[0].data.map(dp => [dp.timestamp, dp.value]);
@@ -124,7 +124,7 @@ The widget editor provides several placeholders to access dashboard data as need
 
 ![Placeholders](/docs/graphics/Placeholders.png)
 
-Example (access 1. parameter):
+Example (access first parameter):
 
 ```js
 const length = __data[0].length;
