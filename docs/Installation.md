@@ -4,10 +4,9 @@
   - [Configure IIH Essentials](#configure-iih-essentials)
   - [EChart options](#echart-options)
   - [Configure Performance Insight](#configure-performance-insight)
-    - [Accessing data](#Accessing-data)
     - [Create a standart custom widget](#create-a-standart-custom-widget)
+    - [Accessing data](#Accessing-data)
     - [Create an individual custom widget](#create-an-individual-custom-widget)
-    - [Widget examples](#widget-examples)
 
 ## Configure IIH Essentials
 
@@ -15,13 +14,10 @@ The PLC with the running TIA project is connected via the OPC UA connector to th
 
 Please visit one of our [connector application examples](https://github.com/search?q=org%3Aindustrial-edge%2C+*connector*&type=repositories) to discover the basics of using connectors on an IED.
 
-Now the app IIH Essentials needs to collect and store this data, to further use it within Performance Insight. Make sure the OPC UA Connector is activated within IIH Essentials!
+Now the app IIH Essentials needs to collect and store this data, to further use it within Performance Insight. Make sure the OPC UA Connector (or any other connector) is activated within IIH Essentials!
 
 - Add the following PLC attributes to a new or existing asset:
   - *GDB.process.numberFaulty*
-
-!!! TODO !!! :
-![Variables](/docs/graphics/Variables.png)
 
 ## EChart options
 
@@ -50,6 +46,41 @@ Within Performance Insight the default code for a custom widget looks like this:
   ```
 
 ## Configure Performance Insight
+
+### Create a standart custom widget
+
+After preparing all necessary input data, you can create a standart custom widet.
+
+- Go to *My Plant* and select the dedicated asset
+- Choose *Add dashboard* > *User-defined dashboard* to create a new dashboard
+- Click on *Add first widget*
+
+The widget configuration wizard opens. Set the configuration as following:
+
+1 General:
+- Select *Custom* widget type
+- Enter the widget name *Standart custom widget*
+
+![StandartWidget_Config1](/docs/graphics/StandartWidget_Config1.png)
+
+2 Parameter:
+- Select the parameter *GDB.process.numberFaulty* and set aggregation to *Counter*
+
+![StandartWidget_Config2](/docs/graphics/StandartWidget_Config2.png)
+
+3 Details:
+- set the *Trend calculation period* to 15 minutes
+- don't change anything within the JavaScript editor
+
+Under *Custom chart configuration* you find the JavaScript editor for the custom widget code. Per default, there is already a code example inserted. In this case it is a simple diagram template were the previously selected input parameter is already mapped into the code.
+
+![StandartWidget_Config3](/docs/graphics/StandartWidget_Config3.png)
+
+- Click on *Create widget* to finalize the custom widget
+
+Finally, a default custom widget was created which looks like this:
+
+![StandartWidget](/docs/graphics/StandartWidget.png)
 
 ### Accessing data
 
@@ -123,48 +154,37 @@ const dataseries = datapoints.map(dp => [dp.timestamp, dp.value]);
 
 ![AccessViaPlaceholder](/docs/graphics/AccessViaPlaceholder.png)
 
-### Create a standart custom widget
-
-After preparing all necessary input data, you can create a standart custom widet.
-
-- Go to *My Plant* and select the dedicated asset
-- Choose *Add dashboard* > *User-defined dashboard* to create a new dashboard 'Widgets'
-- Click on *Add first widget*
-
-The widget configuration wizard opens. Set the configuration as following:
-
-1 General:
-- Select *Custom* widget type
-- Enter the widget name *Standart custom widget*
-
-![StandartWidget_Config1](/docs/graphics/StandartWidget_Config1.png)
-
-2 Parameter:
-- Select the parameter *GDB.process.numberFaulty* and set aggregation to *Counter*
-
-![StandartWidget_Config2](/docs/graphics/StandartWidget_Config2.png)
-
-3 Details:
-- set the *Trend calculation period* to 1 minute
-
-Under *Custom chart configuration* you find the JavaScript editor for the custom widget code. Per default, there is already a code example inserted. In this case it is a simple diagram template were the previously selected input parameter is already mapped into the code. It looks like this:
-
-![StandartWidget_Config3](/docs/graphics/StandartWidget_Config3.png)
-
-- Click on *Create widget* to finalize the custom widget
-
-Finally, the custom widget is created an looks like this:
-
-![StandartWidget](/docs/graphics/StandartWidget.png)
-
 ### Create an individual custom widget
 
-xxx
+Here is shown how to integrate an ECharts example into a Performance Insight custom widget.
 
-### Widget examples
+In this case we use the line diagram example ['Beijing AQI'](https://echarts.apache.org/examples/en/editor.html?c=line-aqi)
 
-xxx
+![EChartsExample](/docs/graphics/EChartsExample.png)
+
+If you open the link to the example, you will always get the dedicated JavaScript code. Here you get an overview which parts of the original code need to be adapted in order to integrate the example in the Industrial Edge custom widgets:
+
+![ExampleCode1](/docs//graphics/ExampleCode1.png)
+
+![ExampleCode2](/docs//graphics/ExampleCode2.png)
+
+You can find the adapted JavaScript code for implementing this example on Edge [here](/src/EChart%20Example_Beijing_for_Edge.js).
+
+Please follow these steps to create a custom widget out of it:
+
+- proceed as explained in chapter [Create a standart custom widget](#create-a-standart-custom-widget) to create a new widget
+- under *3 Details*, set the *Trend calculation period* to 1 hour
+- paste the above created JavaScript code in the editor field
 
 **IMPORTANT**: Always state the keyword `return {}` to make your script and configuration working!
+
+- save the configuration
+- Click on *Create widget* to finalize the custom widget
+
+Finally, the custom widget was created and looks like the ECharts example, but uses the Industrial Edge data:
+
+![EChartsWidget](/docs/graphics/EChartsWidget.png)
+
+You can find the exported dashboard file [here](/src/Custom%20Widget.json) for download.
 
 See the chapter [Usage](/README.md#usage) to discover further information.

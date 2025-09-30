@@ -27,8 +27,6 @@ Besides the standart widget portfolio within Performance Insight, users are able
 The ECharts library covers several widget types:  
 Bar, Line, Pie, Scatter, Radar, Tree, Boxplot, Heatmap, Map, Graph, Sankey, Gauge and many more...
 
-![CustomWidgetTypes](/docs/graphics/CustomWidgetTypes.jpg)
-
 ### General task
 
 This repository describes how to create a custom widet within Performance Insight. It gives an overview about the configuration possibilities and provides some widget examples.  
@@ -55,7 +53,7 @@ This repository describes how to create a custom widet within Performance Insigh
   - OPC UA Connector V2.4.0
   - Common Configurator V2.2.0
   - IIH Essentials V2.2.0
-  - Performance Insight V1.21.1
+  - Performance Insight V1.22.0
 - TIA Portal V19
 
 ### TIA Project
@@ -71,7 +69,15 @@ You can find detailled information about the following steps in the [Configurati
 
 ## Usage
 
-xxx TODO xxx
+You can use the custom widgets as any other widgets within Performance Insight.
+
+Via the dashboard date picket you can define the time range for incoming data to e.g. analyze system behaviour backwards.
+
+![CEChartsWidgetWeek](/docs/graphics/EChartsWidgetWeek.png)
+
+You can also open the *Details* view of the widget or export the data as .csv file.
+
+Simply import [this](/src/Custom%20Widget.json) dashboard into Performance Insight to try it out.
 
 ## Documentation
 
