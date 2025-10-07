@@ -1,8 +1,9 @@
-# Performance Insight custom widgets
+# Custom widgets
 
-This application example demonstrates how to use custom widgets within the app Performance Insight for flexible visualization of any plant data.
+This application example demonstrates how to use custom widgets within the apps **Performance Insight** and **Energy Manager** for flexible visualization of any plant data.
 
-- [Performance Insight custom widgets](#performance-insight-custom-widgets)
+- [Custom widgets](#custom-widgets)
+  - [Examples](#examples)
   - [Description](#description)
     - [Overview](#overview)
     - [General task](#general-task)
@@ -16,11 +17,17 @@ This application example demonstrates how to use custom widgets within the app P
   - [Contribution](#contribution)
   - [Licence and Legal Information](#licence-and-legal-information)
 
+## Examples
+
+[![UseCase1](/docs/graphics/UseCase_1_Beijing.png)](/src/Beijing.js)   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [![UseCase2](/docs/graphics/UseCase_2_RadialPolarBar.png)](/src/RadialPolarBar.js)
+
+[![UseCase100](/docs/graphics/UseCase_100_MoreExamples.png)](https://echarts.apache.org/examples/en/index.html)
+
 ## Description
 
 ### Overview
 
-Besides the standart widget portfolio within Performance Insight, users are able to create customized widgets tailored to specific needs. These widgets are based on the [Apache ECharts library](https://echarts.apache.org/examples/en/index.html), which is a free and open-source JavaScript library for data visualizations. Several defined [ECharts options](https://echarts.apache.org/en/option.html#title) enable dynamic and interactive data representation.  
+Besides the standart widget portfolio within Performance Insight and Energy Manager, users are able to create customized widgets tailored to specific needs. These widgets are based on the [Apache ECharts library](https://echarts.apache.org/examples/en/index.html), which is a free and open-source JavaScript library for data visualizations. Several defined [ECharts options](https://echarts.apache.org/en/option.html#title) enable dynamic and interactive data representation.  
 
 ![CustomWidgetExample](/docs/graphics/CustomWidetExample.png)
 
@@ -69,7 +76,7 @@ You can find detailled information about the following steps in the [Configurati
 
 ## Usage
 
-You can use the custom widgets as any other widgets within Performance Insight.
+You can use the custom widgets as any other widgets within Performance Insight and Energy Manager.
 
 Via the dashboard date picker you can define the time range for incoming data to e.g. analyze system behaviour backwards.
 
@@ -77,7 +84,7 @@ Via the dashboard date picker you can define the time range for incoming data to
 
 You can also open the *Details* view of the widget or export the data as .csv file.
 
-Simply import [this](/src/Custom%20Widget.json) dashboard into Performance Insight to try it out.
+Simply import [this](/src/Custom%20Widget.json) dashboard into Performance Insight or Energy Manager to try it out.
 
 ## Documentation
 

@@ -168,7 +168,7 @@ If you open the link to the example, you will always get the dedicated JavaScrip
 
 ![ExampleCode2](/docs//graphics/ExampleCode2.png)
 
-You can find the adapted JavaScript code for implementing this example on Edge [here](/src/EChart%20Example_Beijing_for_Edge.js).
+You can download the adapted JavaScript code for implementing this example on Edge [here](/src/Beijing.js).
 
 Please follow these steps to create a custom widget out of it:
 
