@@ -3,6 +3,7 @@
 This application example demonstrates how to use custom widgets within the apps **Performance Insight** and **Energy Manager** for flexible visualization of any plant data.
 
 - [Custom widgets](#custom-widgets)
+  - [Examples](#examples)
   - [Description](#description)
     - [Overview](#overview)
     - [General task](#general-task)
@@ -18,7 +19,7 @@ This application example demonstrates how to use custom widgets within the apps 
 
 ## Examples
 
-[![UseCase1](/docs/graphics/UseCase_1_Beijing.png)](/src/Beijing.js)   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [![UseCase2](/docs/graphics/UseCase_2.png)](/src/)
+[![UseCase1](/docs/graphics/UseCase_1_Beijing.png)](/src/Beijing.js)   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [![UseCase2](/docs/graphics/UseCase_2_RadialPolarBar.png)](/src/RadialPolarBar.js)
 
 [![UseCase100](/docs/graphics/UseCase_100_MoreExamples.png)](https://echarts.apache.org/examples/en/index.html)
 
