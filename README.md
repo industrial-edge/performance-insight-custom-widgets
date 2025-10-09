@@ -3,9 +3,9 @@
 This application example demonstrates how to use custom widgets within the apps **Performance Insight** and **Energy Manager** for flexible visualization of any plant data.
 
 - [Custom widgets](#custom-widgets)
-  - [Examples](#examples)
   - [Description](#description)
     - [Overview](#overview)
+    - [Examples](#examples)
     - [General task](#general-task)
   - [Requirements](#requirements)
     - [Prerequisites](#prerequisites)
@@ -17,12 +17,6 @@ This application example demonstrates how to use custom widgets within the apps 
   - [Contribution](#contribution)
   - [Licence and Legal Information](#licence-and-legal-information)
 
-## Examples
-
-[![UseCase1](/docs/graphics/UseCase_1_Beijing.png)](/src/Beijing.js)   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [![UseCase2](/docs/graphics/UseCase_2_RadialPolarBar.png)](/src/RadialPolarBar.js)
-
-[![UseCase100](/docs/graphics/UseCase_100_MoreExamples.png)](https://echarts.apache.org/examples/en/index.html)
-
 ## Description
 
 ### Overview
@@ -33,6 +27,12 @@ Besides the standart widget portfolio within Performance Insight and Energy Mana
 
 The ECharts library covers several widget types:  
 Bar, Line, Pie, Scatter, Radar, Tree, Boxplot, Heatmap, Map, Graph, Sankey, Gauge and many more...
+
+### Examples
+
+[![UseCase1](/docs/graphics/UseCase_1_Beijing.png "Click here to open JavaScript code")](/src/Beijing.js)   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [![UseCase2](/docs/graphics/UseCase_2_RadialPolarBar.png "Click here to open JavaScript code")](/src/RadialPolarBar.js)
+
+[![UseCase100](/docs/graphics/UseCase_100_MoreExamples.png "Click here to open ECharts library")](https://echarts.apache.org/examples/en/index.html)
 
 ### General task
 
