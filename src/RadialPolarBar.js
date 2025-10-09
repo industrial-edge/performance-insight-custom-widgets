@@ -14,28 +14,28 @@ return {
     text: 'Radial Polar Bar' 			// Chart title
   }],
   polar: {
-    radius: [30, '80%'] 				  // Inner and outer radius of the polar coordinate system
+    radius: [30, '80%'] 				// Inner and outer radius of the polar coordinate system
   },
   radiusAxis: {
-    max: 4 								        // Maximum value for the radius axis
+    max: 4 								// Maximum value for the radius axis
   },
   angleAxis: {
-    type: 'category', 					  // Categorical axis for angles
+    type: 'category', 					// Categorical axis for angles
     data: ['Production', 'Unplanned Downtime', 'Planned Downtime'], // Labels for each bar (parameter 1-3)
-    startAngle: 75 						    // Starting angle of the first category
+    startAngle: 75 						// Starting angle of the first category
   },
-  tooltip: {}, 							      // Enables tooltip on hover
+  tooltip: {}, 							// Enables tooltip on hover
   
   // Data series configuration
   series: {
-    type: 'bar', 						      // Type of chart (bar)
+    type: 'bar', 						// Type of chart (bar)
     data: [param1Value, param2Value, param3Value], // Data values for each category (parameter 1-3)
-    coordinateSystem: 'polar', 		// Use polar coordinate system
+    coordinateSystem: 'polar', 			// Use polar coordinate system
     label: {
       // show: true,
       position: 'middle', 				// Position of the label inside the bar
       formatter: '{b}: {c}' 			// Format: category name and value
     }
   },
-  animation: false 						    // Disable animation
+  animation: false 						// Disable animation
 };
