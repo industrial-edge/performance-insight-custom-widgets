@@ -30,9 +30,11 @@ Bar, Line, Pie, Scatter, Radar, Tree, Boxplot, Heatmap, Map, Graph, Sankey, Gaug
 
 ### Examples
 
-[![UseCase1](/docs/graphics/UseCase_1_Beijing.png "Click here to open JavaScript code")](/src/Beijing.js)   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [![UseCase2](/docs/graphics/UseCase_2_RadialPolarBar.png "Click here to open JavaScript code")](/src/RadialPolarBar.js)
-
-[![UseCase100](/docs/graphics/UseCase_100_MoreExamples.png "Click here to open ECharts library")](https://echarts.apache.org/examples/en/index.html)
+|            |           |
+| :--------: | :-------: |
+| Click here to **download** JavaScript code<br>[![UseCase1](/docs/graphics/UseCase_1_Beijing.png "Click here to open JavaScript code")](/src/Beijing.js) <br><font size="5">Widget Beijing AQI</font><br><font size="3">to visualize limit deviations<br>in production</font> |  Click here to **download** JavaScript code<br>[![UseCase2](/docs/graphics/UseCase_2_RadialPolarBar.png "Click here to open JavaScript code")](/src/RadialPolarBar.js)<br><font size="5">Widget Radial Polar Bar</font><br><font size="3">to visualize distribution<br>of production times</font> |
+| Click here to **download** JavaScript code<br>[![UseCase3](/docs/graphics/UseCase_3_EnergySignature.png "Click here to open JavaScript code")](/src/Energy%20Signature.js) <br><font size="5">Energy signature</font><br><font size="3">to visualize consumptions<br>against a trendline</font>  | UseCase4  |
+|  Click here to open ECharts library<br>[![UseCase100](/docs/graphics/UseCase_100_MoreExamples.png "Click here to open ECharts library")](https://echarts.apache.org/examples/en/index.html) <br><font size="5">Explore more examples</font><br><font size="3">in the ECharts library</font>  |...|
 
 ### General task
 
