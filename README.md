@@ -23,7 +23,7 @@ This application example demonstrates how to use custom widgets within the apps 
 
 Besides the standart widget portfolio within Performance Insight and Energy Manager, users are able to create customized widgets tailored to specific needs. These widgets are based on the [Apache ECharts library](https://echarts.apache.org/examples/en/index.html), which is a free and open-source JavaScript library for data visualizations. Several defined [ECharts options](https://echarts.apache.org/en/option.html#title) enable dynamic and interactive data representation.  
 
-![CustomWidgetExample](/docs/graphics/CustomWidetExample.png)
+![CustomWidgetExample](/docs/graphics/CustomWidgetExample.png)
 
 The ECharts library covers several widget types:  
 Bar, Line, Pie, Scatter, Radar, Tree, Boxplot, Heatmap, Map, Graph, Sankey, Gauge and many more...
@@ -32,13 +32,13 @@ Bar, Line, Pie, Scatter, Radar, Tree, Boxplot, Heatmap, Map, Graph, Sankey, Gaug
 
 |            |           |
 | :--------: | :-------: |
-| Click here to **download** JavaScript code<br>[![UseCase1](/docs/graphics/UseCase_1_Beijing.png "Click here to open JavaScript code")](/src/Beijing.js) <br><font size="5">Widget Beijing AQI</font><br><font size="3">to visualize limit deviations<br>in production</font> |  Click here to **download** JavaScript code<br>[![UseCase2](/docs/graphics/UseCase_2_RadialPolarBar.png "Click here to open JavaScript code")](/src/RadialPolarBar.js)<br><font size="5">Widget Radial Polar Bar</font><br><font size="3">to visualize distribution<br>of production times</font> |
-| Click here to **download** JavaScript code<br>[![UseCase3](/docs/graphics/UseCase_3_EnergySignature.png "Click here to open JavaScript code")](/src/Energy%20Signature.js) <br><font size="5">Energy signature</font><br><font size="3">to visualize consumptions<br>against a trendline</font>  | UseCase4  |
-|  Click here to open ECharts library<br>[![UseCase100](/docs/graphics/UseCase_100_MoreExamples.png "Click here to open ECharts library")](https://echarts.apache.org/examples/en/index.html) <br><font size="5">Explore more examples</font><br><font size="3">in the ECharts library</font>  |...|
+| Click graphic to **download** JavaScript code<br>[![UseCase1](/docs/graphics/UseCase_1_Beijing.png "Click here to open JavaScript code")](/src/1_Beijing.js) <br>**Widget Beijing AQI**<br> to visualize limit deviations<br>in production |  Click graphic to **download** JavaScript code<br>[![UseCase2](/docs/graphics/UseCase_2_RadialPolarBar.png "Click here to open JavaScript code")](/src/2_RadialPolarBar.js)<br>**Widget Radial Polar Bar**<br>to visualize distribution<br>of production times |
+| Click graphic to **download** JavaScript code<br>[![UseCase3](/docs/graphics/UseCase_3_EnergySignature.png "Click here to open JavaScript code")](/src/3_EnergySignature.js) <br>**Energy signature**<br>to visualize consumptions<br>against a trendline | Click graphic to **download** JavaScript code<br>[![UseCase4](/docs/graphics/UseCase_4_KpiCalculation.png "Click here to open JavaScript code")](/src/4_KpiCalculation.js) <br>**KPI calculation**<br>to represent<br>as individual as possible  |
+|  Click graphic to open ECharts library<br>[![UseCase100](/docs/graphics/UseCase_100_MoreExamples.png "Click here to open ECharts library")](https://echarts.apache.org/examples/en/index.html)<br>**Explore more examples**<br>in the ECharts library |...|
 
 ### General task
 
-This repository describes how to create a custom widet within Performance Insight. It gives an overview about the configuration possibilities and provides some widget examples.  
+This repository describes how to create a custom widget within Performance Insight. It gives an overview about the configuration possibilities and provides some widget examples.  
 
 ## Requirements
 
@@ -86,7 +86,7 @@ Via the dashboard date picker you can define the time range for incoming data to
 
 You can also open the *Details* view of the widget or export the data as .csv file.
 
-Simply import [this](/src/Custom%20Widget.json) dashboard into Performance Insight or Energy Manager to try it out.
+Simply import [this](/src/Dashboard_CustomWidget.json) dashboard into Performance Insight or Energy Manager to try it out.
 
 ## Documentation
 

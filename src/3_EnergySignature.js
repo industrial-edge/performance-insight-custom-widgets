@@ -1,21 +1,3 @@
-
-// fix values for testing
-/*
-
-const signature = [
-  [-10, 6600],
-  [10, 2000],
-  [15, 1500],
-  [30, 1100]
-];
-const data = [
-  [17.6, 1175],
-  [15.7, 1018],
-  [15.45, 833]
-];
-
-*/
-
 // Initialize an empty array to store datapoints
 const datapoints = [];
 
