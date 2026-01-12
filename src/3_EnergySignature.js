@@ -1,3 +1,29 @@
+
+// fix signature values
+const signature = [
+  [-10, 6600],
+  [-8, 5500],
+  [-6, 4600],
+  [-4, 3800],
+  [-2, 3100],
+  [0, 2700],
+  [2, 2400],
+  [4, 2300],
+  [6, 2200],
+  [8, 2100],
+  [10, 2000],
+  [12, 1950],
+  [14, 1900],
+  [16, 1850],
+  [18, 1800],
+  [20, 1760],
+  [22, 1720],
+  [24, 1690],
+  [26, 1670],
+  [28, 1655],
+  [30, 1650]
+];
+
 // Initialize an empty array to store datapoints
 const datapoints = [];
 
@@ -25,11 +51,11 @@ const dataseries = datapoints.map(dp => [dp.temperature, dp.energy]);
 return {
   tooltip: {
     trigger: 'axis', 	// Show tooltip when hovering over axis
-    axisPointer: {
-      type: 'cross' 	// Use a crosshair pointer
-    }
   },
   xAxis: {
+	axisLabel: {
+      formatter: '{value} °C'
+    },
     splitLine: {
       lineStyle: {
         type: 'dashed' 	// Dashed grid lines on the x-axis

@@ -5,27 +5,19 @@
 // Trend calculation period = 1 Month
 
 
-// Data retrieval and transformation
-// ---------------------------------
+// Data collection and transformation
+// ----------------------------------
+const data_month = widget.parameters.map(param => {
+  const lastValue = param.data[param.data.length - 1].value;
+  return { value: lastValue, name: param.name };
+});
 
-// Get the size of the array element (number of month within this year)
-var numberOfMonth = __data[0].length;
+const data_year = widget.parameters.map(param => {
+  const total = param.data.reduce((sum, item) => sum + item.value, 0);
+  return { value: total, name: param.name };
+});
 
-// Get the values of last month out of parameter 1,2,3
-var month_1 = widget.parameters[0].data[numberOfMonth - 1].value;
-var month_2 = widget.parameters[1].data[numberOfMonth - 1].value;
-var month_3 = widget.parameters[2].data[numberOfMonth - 1].value;
-
-var year_1 = 0;
-var year_2 = 0;
-var year_3 = 0;
-
-// Get the values of whole year out of parameters 1,2,3 by adding each monthly value
-for (let i = 0; i < numberOfMonth; i++) {
-  year_1 = year_1 + widget.parameters[0].data[i].value;
-  year_2 = year_2 + widget.parameters[1].data[i].value;
-  year_3 = year_3 + widget.parameters[2].data[i].value;
-}
+const legendData = widget.parameters.map(param => param.name);
 
 // Widget configuration
 // --------------------
@@ -35,16 +27,12 @@ return {
 // Tooltip configuration
   tooltip: {
     trigger: 'item',
-    formatter: '{a}: {b} = {c} ({d}%)'	// Formatter for the tooltip content: {a} series name, {b} data item name, {c} data value, {d} percentage
+    formatter: '{a}: {b} = {c}kWh ({d}%)'	// Formatter for the tooltip content: {a} series name, {b} data item name, {c} data value, {d} percentage
   },
 
   // Legend configuration
   legend: {
-    data: [
-      'Electrictiy', //__parameterName[0],
-      'Water', 		//__parameterName[1],
-      'Gas' 		//__parameterName[2]
-    ]
+    data: legendData
   },
 
   // Series configuration: defines the actual charts to be displayed
@@ -63,19 +51,7 @@ return {
         show: true
       },
 	  // Data points for the monthly pie chart
-      data: [{
-          value: month_1.toFixed(1),
-          name: 'Electrictiy' //__parameterName[0]
-        },
-        {
-          value: month_2.toFixed(1),
-          name: 'Water' //__parameterName[1]
-        },
-        {
-          value: month_3.toFixed(1),
-          name: 'Gas' //__parameterName[2]
-        }
-      ]
+      data: data_month
     },
     {
 	  // Second pie chart series: Represents yearly consumption
@@ -89,19 +65,7 @@ return {
         formatter: '{d}%',		// Format labels to show only the percentage
       },
 	  // Data points for the yearly pie chart
-      data: [{
-          value: year_1.toFixed(1),
-          name: 'Electrictiy' //_parameterName[0]
-        },
-        {
-          value: year_2.toFixed(1),
-          name: 'Water' //__parameterName[1]
-        },
-        {
-          value: year_3.toFixed(1),
-          name: 'Gas' //__parameterName[2]
-        }
-      ]
+      data: data_year
     }
   ]
 };
