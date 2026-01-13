@@ -33,9 +33,9 @@ Bar, Line, Pie, Scatter, Radar, Tree, Boxplot, Heatmap, Map, Graph, Sankey, Gaug
 | > Click on graphic to **download** JavaScript code           |           |
 | :--------: | :-------: |
 | [![UseCase1](/docs/graphics/UseCase_1_Beijing.png "Click here to open JavaScript code")](/src/1_Beijing.js) <br>**Widget Beijing AQI**<br> to visualize limit deviations<br>in production | [![UseCase2](/docs/graphics/UseCase_2_RadialPolarBar.png "Click here to open JavaScript code")](/src/2_RadialPolarBar.js)<br>**Widget Radial Polar Bar**<br>to visualize distribution<br>of production times |
-| [![UseCase3](/docs/graphics/UseCase_3_EnergySignature.png "Click here to open JavaScript code")](/src/3_EnergySignature.js) <br>**Energy signature**<br>to visualize consumptions<br>against a trendline | [![UseCase4](/docs/graphics/UseCase_4_KpiCalculation.png "Click here to open JavaScript code")](/src/4_KpiCalculation.js) <br>**KPI calculation**<br>to represent<br>as individual as possible  |
-| [![UseCase5](/docs/graphics/UseCase_5_MonthYearComparison.png "Click here to open JavaScript code")](/src/5_MonthYearComparison.js) <br>**Month/Year comparison**<br>to visualize consumptions<br>over time | [![UseCase6](/docs/graphics/ "Click here to open JavaScript code")](/src/4_KpiCalculation.js) <br>**yyy**<br>to yyy<br>yyy  |
-|  [![UseCase100](/docs/graphics/UseCase_100_MoreExamples.png "Click here to open ECharts library")](https://echarts.apache.org/examples/en/index.html)<br>**Explore more examples**<br>in the ECharts library |...|
+| [![UseCase3](/docs/graphics/UseCase_3_EnergySignature.png "Click here to open JavaScript code")](/src/3_EnergySignature.js) <br>**Energy signature**<br>to visualize consumptions<br>against a trendline | [![UseCase4](/docs/graphics/UseCase_4_KpiCalculation.png "Click here to open JavaScript code")](/src/4_KpiCalculation.js) <br>**KPI calculation**<br>to represent values<br>as individual as possible  |
+| [![UseCase5](/docs/graphics/UseCase_5_MonthYearComparison.png "Click here to open JavaScript code")](/src/5_MonthYearComparison.js) <br>**Month/Year comparison**<br>to visualize consumptions<br>proportionally | [![UseCase6](/docs/graphics/UseCase_6_ComparisonOverTime.png "Click here to open JavaScript code")](/src/6_ComparisonOverTime.js) <br>**Comparison over time**<br>to track current consumptions<br>against the average |
+|  **Explore more examples**<br>in the [ECharts library](https://echarts.apache.org/examples/en/index.html) |...|
 
 ### General task
 
