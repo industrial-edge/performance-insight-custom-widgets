@@ -100,6 +100,11 @@ You can find further documentation and help in the following links:
 
 Please check our [contribution guideline](CONTRIBUTING.md). 
 
+## Disclaimer
+
+This documentation describes how you can download and set up a test environment which consists of or contains third-party software. 
+Please read the following [disclaimer](Disclaimer_Tutorials.md) carefully.
+
 ## Licence and Legal Information
 
 Please read the [Legal information](LICENSE.txt).
