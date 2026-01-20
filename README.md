@@ -15,6 +15,7 @@ This application example demonstrates how to use custom widgets within the apps 
   - [Usage](#usage)
   - [Documentation](#documentation)
   - [Contribution](#contribution)
+  - [Contribution](#disclaimer)
   - [Licence and Legal Information](#licence-and-legal-information)
 
 ## Description
