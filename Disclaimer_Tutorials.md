@@ -1,4 +1,4 @@
-IMPORTANT - PLEASE READ CAREFULLY: 
+## IMPORTANT - PLEASE READ CAREFULLY: 
 
 This documentation describes how you can download and set up a test environment which consists of or contains third-party software. 
 By following this documentation you agree that using such third-party software is done at your own discretion and risk. 
