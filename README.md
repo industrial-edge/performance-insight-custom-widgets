@@ -112,4 +112,4 @@ Please read the following [disclaimer](Disclaimer_Tutorials.md) carefully.
 
 ## Licence and Legal Information
 
-Please read the [Legal information](LICENSE.txt).
+Please read the [Legal information](LICENSE.md).
